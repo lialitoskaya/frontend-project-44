@@ -12,9 +12,10 @@
     "url": "git+https://github.com/lialitoskaya/frontend-project-44.git"
   },
   "bin": {
-    "brain-games": "bin/brain-games.js",
-    "brain-even": "bin/brain-even.js",
-    "brain-calc": "bin/brain-calc.js"
+    "brain-games": "bin/games/brain-games.js",
+    "brain-even": "bin/games/brain-even.js",
+    "brain-calc": "bin/games/brain-calc.js",
+    "brain-gcd": "bin/games/brain-gcd.js"
   },
   "author": "",
   "license": "ISC",
