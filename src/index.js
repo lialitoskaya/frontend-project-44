@@ -69,31 +69,31 @@ const brainGcd = () => {
 
   let i = 0;
   while (i < 3) {
-    var randomNum2 = Math.round(Math.random() * 50);
-    var randomNum = Math.round(Math.random() * 50);
-    var correctNum = 0
-    const questionNums = `${randomNum} ${randomNum2}`
+    let randomNum2 = Math.round(Math.random() * 50);
+    let randomNum = Math.round(Math.random() * 50);
+    let correctNum = 0;
+    const questionNums = `${randomNum} ${randomNum2}`;
     console.log(`${question}${questionNums}`);
 
     const userAnswer = Number(readlineSync.question(answer));
 
-    while (randomNum !== 0 && randomNum2 !== 0){
-    if (randomNum > randomNum2){
-        randomNum = randomNum % randomNum2}
-    else{
-        randomNum2 = randomNum2 % randomNum}
-    correctNum = randomNum + randomNum2;
+    while (randomNum !== 0 && randomNum2 !== 0) {
+      if (randomNum > randomNum2) {
+        randomNum %= randomNum2;
+      } else {
+        randomNum2 %= randomNum;
+      }
+      correctNum = randomNum + randomNum2;
     }
-    i++
-    if (correctNum === userAnswer){console.log('Correct!');}
-    else {console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctNum}'.${tryAgain} ${userName}!`);
-    return;}
-}
-if(i===3) {console.log(`Congratulations, ${userName}!`);}
-}
-
-
+    i++;
+    if (correctNum === userAnswer) { console.log('Correct!'); } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctNum}'.${tryAgain} ${userName}!`);
+      return;
+    }
+  }
+  if (i === 3) { console.log(`Congratulations, ${userName}!`); }
+};
 
 export {
-  brain_even, userName, hiUser, welcome, brain_calc, brainGcd
+  brain_even, userName, hiUser, welcome, brain_calc, brainGcd,
 };
