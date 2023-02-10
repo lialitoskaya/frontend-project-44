@@ -1,5 +1,4 @@
-import readlineSync from 'readline-sync';
-import hiUser from '../src/cli.js';
+import { welcome, hiUser } from '../src/games/index.js';
 
-console.log('Welcome to the Brain Games!');
+welcome();
 hiUser();
