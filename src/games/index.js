@@ -21,7 +21,7 @@ const brainEven = () => {
   let i = 0;
 
   while (i < 3) {
-    const questionNum = Math.round(Math.random() * 50);
+    const questionNum = randomNum();
     console.log(`${question}${questionNum}`);
     const userAnswer = readlineSync.question(answer);
 
