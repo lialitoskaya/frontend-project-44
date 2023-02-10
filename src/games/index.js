@@ -21,14 +21,15 @@ const brainEven = () => {
   let i = 0;
 
   while (i < 3) {
-    const questionNum = randomNum();
+    const questionNum = Math.round(Math.random() * 50);
     console.log(`${question}${questionNum}`);
     const userAnswer = readlineSync.question(answer);
 
     const correctAnsw = (questionNum % 2 !== 0) ? 'no' : 'yes';
 
     if (correctAnsw === userAnswer) { console.log('Correct!'); } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`);;
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`);
+      return;
     }
 
     i += 1;
