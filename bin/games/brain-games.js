@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-import { welcome, hiUser, userName } from '../../src/index.js';
+import { welcome, hiUser } from '../../src/index.js';
 
 welcome();
 hiUser();
