@@ -7,6 +7,7 @@ const hiUser = () => {
   userName = readlineSync.question('May I have your name? ');
   const helloUser = (`Hello, ${userName}!`);
   console.log(helloUser);
+  return;
 };
 
 const randomNum = () => Math.round(Math.random() * 50);
@@ -33,7 +34,8 @@ const brainEven = () => {
 
     i += 1;
   }
-  if (i === 3) { console.log(`Congratulations, ${userName}!`); }
+  if (i === 3) { console.log(`Congratulations, ${userName}!`);
+  return }
 };
 
 const brainCalc = () => {
@@ -65,7 +67,8 @@ const brainCalc = () => {
     }
     i += 1;
   }
-  if (i === 3) { console.log(`Congratulations, ${userName}!`); }
+  if (i === 3) { console.log(`Congratulations, ${userName}!`);
+  return }
 };
 
 const brainGcd = () => {
@@ -95,7 +98,8 @@ const brainGcd = () => {
       return;
     }
   }
-  if (i === 3) { console.log(`Congratulations, ${userName}!`); }
+  if (i === 3) { console.log(`Congratulations, ${userName}!`);
+  return }
 };
 
 const brainProgression = () => {
@@ -127,7 +131,8 @@ const brainProgression = () => {
     }
     i += 1;
   }
-  if (i === 3) { console.log(`Congratulations, ${userName}!`); }
+  if (i === 3) { console.log(`Congratulations, ${userName}!`);
+  return }
 };
 
 const brainPrime = () => {
@@ -158,7 +163,8 @@ const brainPrime = () => {
     }
     i += 1;
   }
-  if (i === 3) { console.log(`Congratulations, ${userName}!`); }
+  if (i === 3) { console.log(`Congratulations, ${userName}!`);
+  return }
 };
 
 export {
