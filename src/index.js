@@ -45,12 +45,16 @@ const brainCalc = () => {
   while (i < 3) {
     const num = randomNum();
     const num2 = randomNum();
-    const randomOperator = operator[Math.round(Math.random() * 3)];
+    const randomOperator = operator[Math.round(Math.random() * 2)];
     const questionExpression = `${num} ${randomOperator} ${num2}`;
+    let correctNum;
 
     console.log(question + questionExpression);
 
-    const correctNum = eval(questionExpression);
+    if (randomOperator === '-'){correctNum = num - num2};
+    if (randomOperator === '+'){correctNum = num + num2};
+    if (randomOperator === '*'){correctNum = num * num2};
+
     const userAnswer = Number(readlineSync.question(answer));
 
     if (userAnswer === correctNum) {
