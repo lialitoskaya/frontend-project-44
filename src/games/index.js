@@ -28,14 +28,13 @@ const brainEven = () => {
     const correctAnsw = (questionNum % 2 !== 0) ? 'no' : 'yes';
 
     if (correctAnsw === userAnswer) { console.log('Correct!'); } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`);
-      return;
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`);;
     }
 
     i += 1;
   }
   if (i === 3) { console.log(`Congratulations, ${userName}!`);
-  return }
+   }
 };
 
 const brainCalc = () => {
