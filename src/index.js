@@ -14,7 +14,7 @@ const question = 'Question: ';
 const answer = 'Your answer ';
 const tryAgain = "\nLet's try again,";
 
-const brain_even = () => {
+const brainEven = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   let i = 0;
@@ -36,7 +36,7 @@ const brain_even = () => {
   if (i === 3) { console.log(`Congratulations, ${userName}!`); }
 };
 
-const brain_calc = () => {
+const brainCalc = () => {
   console.log('What is the result of the expression?');
 
   const operator = ['+', '-', '*'];
@@ -100,13 +100,13 @@ const brainProgression = () => {
   while (i < 3) {
     const x = Math.round(Math.random() * 4) + 2;
     const result = [];
-    let c = randomNum();
-    result.push(c);
+    let questionNumbers = randomNum();
+    result.push(questionNumbers);
 
     let i1 = 0;
     while (i1 < 9) {
-      c += x;
-      result.push(c);
+      questionNumbers += x;
+      result.push(questionNumbers);
       i1 += 1;
     }
     const b = '..';
@@ -115,7 +115,9 @@ const brainProgression = () => {
     console.log(`${question} ${result.join(', ')}`);
     const userAnswer = readlineSync.question(answer);
 
-    if (correctNum === userAnswer) { console.log('Correct!'); } else {
+    if (correctNum === userAnswer) {
+      console.log('Correct!');
+    } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctNum}'.${tryAgain} ${userName}!`);
       return;
     }
@@ -124,6 +126,37 @@ const brainProgression = () => {
   if (i === 3) { console.log(`Congratulations, ${userName}!`); }
 };
 
+const brainPrime = () => {
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+
+  let i = 0;
+  while (i < 3) {
+    const questionNum = randomNum();
+    console.log(`${question}${questionNum}`);
+
+    let count = 0;
+    let correctAnsw;
+
+    for (let i1 = 2; i1 <= questionNum; i1 += 1) {
+      if (questionNum % i1 === 0) {
+        count += 1;
+      }
+      correctAnsw = (count > 1 || questionNum === 1) ? 'no' : 'yes';
+    }
+
+    const userAnswer = readlineSync.question(answer);
+
+    if (correctAnsw === userAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnsw}'.${tryAgain} ${userName}!`);
+      return;
+    }
+    i += 1;
+  }
+  if (i === 3) { console.log(`Congratulations, ${userName}!`); }
+};
+
 export {
-  brain_even, userName, hiUser, welcome, brain_calc, brainGcd, brainProgression,
+  brainEven, userName, hiUser, welcome, brainCalc, brainGcd, brainProgression, brainPrime,
 };
