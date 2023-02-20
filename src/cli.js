@@ -1,11 +1,12 @@
 import readlineSync from 'readline-sync';
-
-export const welcome = () => { console.log('Welcome to the Brain Games!'); };
-let userName = '';
-const hiUser = () => {
+// eslint-disable-next-line import/no-mutable-exports
+let userName;
+const welcome = () => {
+  console.log('Welcome to the Brain Games!');
   userName = readlineSync.question('May I have your name? ');
-  const helloUser = (`Hello, ${userName}!`);
-  console.log(helloUser);
+  console.log(`Hello, ${userName}!`);
 };
+
+// eslint-disable-next-line import/prefer-default-export
+export default welcome;
 export { userName };
-export default hiUser;
