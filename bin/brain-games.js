@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { welcome, hiUser } from '../src/games/index.js';
+import { welcome } from '../src/games/index.js';
 
 welcome();
-hiUser();

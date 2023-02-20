@@ -1,5 +1,6 @@
-import { brainProgression, hiUser, welcome } from '../src/games/index.js';
+import brainProgression from '../src/games/brainProgression.js';
+
+import welcome from '../src/cli.js';
 
 welcome();
-hiUser();
 brainProgression();

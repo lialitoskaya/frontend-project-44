@@ -1,5 +1,5 @@
-import { brainEven, hiUser, welcome } from '../src/games/index.js';
+import brainEven from '../src/games/braineven.js';
+import welcome from '../src/cli.js';
 
 welcome();
-hiUser();
 brainEven();

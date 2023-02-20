@@ -1,5 +1,6 @@
-import { brainPrime, hiUser, welcome } from '../src/games/index.js';
+import brainPrime from '../src/games/brainprime.js';
+
+import welcome from '../src/cli.js';
 
 welcome();
-hiUser();
 brainPrime();

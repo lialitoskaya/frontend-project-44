@@ -1,5 +1,6 @@
-import { brainCalc, hiUser, welcome } from '../src/games/index.js';
+import brainCalc from '../src/games/braincalc.js';
+
+import welcome from '../src/cli.js';
 
 welcome();
-hiUser();
 brainCalc();
