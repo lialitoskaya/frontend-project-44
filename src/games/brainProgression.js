@@ -13,7 +13,6 @@ const brainProgression = () => {
     const result = [];
     let questionNumbers = randomNum(1, 60);
     result.push(questionNumbers);
-
     let i1 = 0;
     while (i1 < 9) {
       questionNumbers += x;
@@ -27,9 +26,7 @@ const brainProgression = () => {
     const userAnswer = readlineSync.question(answer);
     trueAnswer(correctAnsw, userAnswer);
     if (correctAnsw !== userAnswer) {
-      console.log(
-        `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`,
-      );
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`);
       return;
     }
     i += 1;
