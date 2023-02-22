@@ -1,9 +1,10 @@
-import readlineSync from 'readline-sync';
 import randomNum from '../utils.js';
 import {
-  trueAnswer, question, answer, tryAgain, congratulations,
+  question,
+  congratulations,
+  responseСomparison,
+  comparisonResult,
 } from './index.js';
-import { userName } from '../cli.js';
 
 const brainProgression = () => {
   console.log('What number is missing in the progression?');
@@ -13,20 +14,18 @@ const brainProgression = () => {
     const result = [];
     let questionNumbers = randomNum(1, 60);
     result.push(questionNumbers);
-    let i1 = 0;
-    while (i1 < 9) {
+
+    for (let i1 = 0; i1 < 9; i1 += 1) {
       questionNumbers += x;
       result.push(questionNumbers);
-      i1 += 1;
     }
     const b = '..';
-    const randomIndex = randomNum(1, 10);
+    const randomIndex = randomNum(0, 8);
     const correctAnsw = result.splice(randomIndex, 1, b).join();
     console.log(`${question} ${result.join(', ')}`);
-    const userAnswer = readlineSync.question(answer);
-    trueAnswer(correctAnsw, userAnswer);
-    if (correctAnsw !== userAnswer) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`);
+
+    responseСomparison(correctAnsw);
+    if (comparisonResult === false) {
       return;
     }
     i += 1;

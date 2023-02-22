@@ -1,9 +1,10 @@
-import readlineSync from 'readline-sync';
 import randomNum from '../utils.js';
 import {
-  trueAnswer, question, answer, tryAgain, congratulations,
+  question,
+  congratulations,
+  responseСomparison,
+  comparisonResult,
 } from './index.js';
-import { userName } from '../cli.js';
 
 const brainPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -20,12 +21,8 @@ const brainPrime = () => {
       }
       correctAnsw = count > 1 || questionNum === 1 ? 'no' : 'yes';
     }
-    const userAnswer = readlineSync.question(answer);
-    trueAnswer(correctAnsw, userAnswer);
-    if (correctAnsw !== userAnswer) {
-      console.log(
-        `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`,
-      );
+    responseСomparison(correctAnsw);
+    if (comparisonResult === false) {
       return;
     }
     i += 1;

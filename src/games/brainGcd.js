@@ -1,9 +1,10 @@
-import readlineSync from 'readline-sync';
 import {
-  trueAnswer, question, answer, tryAgain, congratulations,
+  responseСomparison,
+  comparisonResult,
+  question,
+  congratulations,
 } from './index.js';
 import randomNum from '../utils.js';
-import { userName } from '../cli.js';
 
 const brainGcd = () => {
   console.log('Find the greatest common divisor of given numbers.');
@@ -14,7 +15,7 @@ const brainGcd = () => {
     let correctAnsw = 0;
     const questionNums = `${num} ${num2}`;
     console.log(`${question}${questionNums}`);
-    const userAnswer = Number(readlineSync.question(answer));
+
     while (num !== 0 && num2 !== 0) {
       if (num > num2) {
         num %= num2;
@@ -23,9 +24,8 @@ const brainGcd = () => {
       }
       correctAnsw = num + num2;
     }
-    trueAnswer(correctAnsw, userAnswer);
-    if (correctAnsw !== userAnswer) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`);
+    responseСomparison(String(correctAnsw));
+    if (comparisonResult === false) {
       return;
     }
     i += 1;
