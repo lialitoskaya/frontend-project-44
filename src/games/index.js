@@ -2,7 +2,7 @@
 import readlineSync from "readline-sync";
 import welcome, { userName } from "../cli.js";
 
-export const question = "Question:";
+export const question = "Question: ";
 export const answer = "Your answer ";
 export const tryAgain = "\nLet's try again,";
 
