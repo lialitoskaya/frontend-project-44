@@ -14,7 +14,7 @@ const brainProgression = () => {
     const result = [];
     let questionNumbers = randomNum(1, 60);
     result.push(questionNumbers);
-    const resultRandomProgression = randomNum(6, 10);
+    const resultRandomProgression = randomNum(6, 9);
     for (let i1 = 0; i1 < resultRandomProgression; i1 += 1) {
       questionNumbers += x;
       result.push(questionNumbers);
@@ -22,7 +22,7 @@ const brainProgression = () => {
     const b = "..";
     const randomIndex = randomNum(0, result.length - 1);
     const correctAnsw = result.splice(randomIndex, 1, b).join();
-    console.log(`${question} ${result.join(" ").trim()}`);
+    console.log(`${question}${result.join(" ")}`);
 
     responseСomparison(correctAnsw);
     if (comparisonResult === false) {
