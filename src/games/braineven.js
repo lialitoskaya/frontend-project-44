@@ -10,7 +10,6 @@ const brainEven = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   let i = 0;
-
   while (i < 3) {
     const questionNum = randomNum(1, 50);
     console.log(`${question}${questionNum}`);
