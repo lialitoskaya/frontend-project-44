@@ -1,9 +1,4 @@
-import {
-  responseСomparison,
-  comparisonResult,
-  question,
-  congratulations,
-} from './index.js';
+import { responseСomparison, question, congratulations } from './index.js';
 import randomNum from '../utils.js';
 
 const brainEven = () => {
@@ -14,8 +9,7 @@ const brainEven = () => {
     const questionNum = randomNum(1, 50);
     console.log(`${question}${questionNum}`);
     const correctAnsw = questionNum % 2 !== 0 || questionNum === 0 ? 'no' : 'yes';
-    responseСomparison(correctAnsw);
-    if (comparisonResult === false) {
+    if (responseСomparison(correctAnsw) === false) {
       return;
     }
     i += 1;

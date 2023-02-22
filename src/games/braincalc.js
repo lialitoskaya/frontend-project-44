@@ -1,9 +1,4 @@
-import {
-  question,
-  congratulations,
-  responseСomparison,
-  comparisonResult,
-} from './index.js';
+import { question, congratulations, responseСomparison } from './index.js';
 import randomNum from '../utils.js';
 
 const brainCalc = () => {
@@ -35,8 +30,7 @@ const brainCalc = () => {
         correctAnsw = null;
     }
 
-    responseСomparison(String(correctAnsw));
-    if (comparisonResult === false) {
+    if (responseСomparison(String(correctAnsw)) === false) {
       return;
     }
     i += 1;

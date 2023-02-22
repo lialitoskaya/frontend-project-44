@@ -18,18 +18,16 @@ const congratulations = (i) => {
   }
 };
 
-let comparisonResult;
 const responseСomparison = (correctAnsw) => {
   const userAnswer = readlineSync.question(answer);
   if (correctAnsw === userAnswer) {
     console.log('Correct!');
-    comparisonResult = true;
-  } else {
-    console.log(
-      `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`,
-    );
-    comparisonResult = false;
+    return true;
   }
+  console.log(
+    `${userAnswer} is wrong answer ;(. Correct answer was ${correctAnsw}.${tryAgain} ${userName}!`,
+  );
+  return false;
 };
 
 export {
@@ -37,5 +35,5 @@ export {
   welcome,
   congratulations,
   responseСomparison,
-  comparisonResult,
+  // comparisonResult,
 };

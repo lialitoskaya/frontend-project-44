@@ -1,10 +1,5 @@
 import randomNum from '../utils.js';
-import {
-  question,
-  congratulations,
-  responseСomparison,
-  comparisonResult,
-} from './index.js';
+import { question, congratulations, responseСomparison } from './index.js';
 
 const brainProgression = () => {
   console.log('What number is missing in the progression?');
@@ -23,9 +18,7 @@ const brainProgression = () => {
     const randomIndex = randomNum(0, result.length - 1);
     const correctAnsw = result.splice(randomIndex, 1, b).join();
     console.log(`${question}${result.join(' ')}`);
-
-    responseСomparison(correctAnsw);
-    if (comparisonResult === false) {
+    if (responseСomparison(correctAnsw) === false) {
       return;
     }
     i += 1;

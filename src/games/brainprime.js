@@ -1,10 +1,5 @@
 import randomNum from '../utils.js';
-import {
-  question,
-  congratulations,
-  responseСomparison,
-  comparisonResult,
-} from './index.js';
+import { question, congratulations, responseСomparison } from './index.js';
 
 const brainPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -24,8 +19,7 @@ const brainPrime = () => {
       }
       correctAnsw = count > 1 ? 'no' : 'yes';
     }
-    responseСomparison(correctAnsw);
-    if (comparisonResult === false) {
+    if (responseСomparison(correctAnsw) === false) {
       return;
     }
     i += 1;
