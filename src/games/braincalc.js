@@ -1,8 +1,8 @@
-import { question, runGameEngine } from "../index.js";
-import randomNum from "../utils.js";
+import { question, runGameEngine } from '../index.js';
+import randomNum from '../utils.js';
 
 const calc = () => {
-  const operator = ["+", "-", "*"];
+  const operator = ['+', '-', '*'];
 
   const num = randomNum(1, 10);
   const num2 = randomNum(1, 10);
@@ -10,13 +10,13 @@ const calc = () => {
   const questionExpression = `${question}${num} ${randomOperator} ${num2}`;
   let correctAnsw;
   switch (randomOperator) {
-    case "-":
+    case '-':
       correctAnsw = num - num2;
       break;
-    case "+":
+    case '+':
       correctAnsw = num + num2;
       break;
-    case "*":
+    case '*':
       correctAnsw = num * num2;
       break;
     default:
@@ -26,7 +26,7 @@ const calc = () => {
 };
 
 const brainCalc = () => {
-  const rules = "What is the result of the expression?";
+  const rules = 'What is the result of the expression?';
   const generateRound = () => calc();
   runGameEngine(rules, generateRound);
 };

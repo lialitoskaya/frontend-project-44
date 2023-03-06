@@ -1,5 +1,5 @@
-import { question, runGameEngine } from "../index.js";
-import randomNum from "../utils.js";
+import { question, runGameEngine } from '../index.js';
+import randomNum from '../utils.js';
 
 const findGcdTwoRandomNum = () => {
   let num = randomNum(1, 10);
@@ -20,7 +20,7 @@ const findGcdTwoRandomNum = () => {
 };
 
 const brainGcd = () => {
-  const rules = "Find the greatest common divisor of given numbers.";
+  const rules = 'Find the greatest common divisor of given numbers.';
   const generateRound = () => findGcdTwoRandomNum();
   runGameEngine(rules, generateRound);
 };
