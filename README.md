@@ -6,7 +6,7 @@ Each game is played up to the first wrong answer or up to three correct answers 
 If the answer is wrong the game ends, you lose. If you answer correctly three rounds in a row, then you win.
 
 Installing
-A step by step series of examples that tell you how to get a development env running
+How to get a development env running
 
 test npm publish:
 make publish
