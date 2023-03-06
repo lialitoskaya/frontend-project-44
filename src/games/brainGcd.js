@@ -20,7 +20,7 @@ const findGcdTwoRandomNum = () => {
 };
 
 const brainGcd = () => {
-  const rules = "Find the greatest common divisor of given numbes.";
+  const rules = "Find the greatest common divisor of given numbers.";
   const generateRound = () => findGcdTwoRandomNum();
   runGameEngine(rules, generateRound);
 };
