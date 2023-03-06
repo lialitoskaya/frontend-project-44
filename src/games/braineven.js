@@ -1,19 +1,16 @@
-import { responseСomparison, question, congratulations } from './index.js';
+import { question, runGameEngine } from '../index.js';
 import randomNum from '../utils.js';
 
-const brainEven = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const randomNumEvenOrNo = () => {
+  const questionNum = randomNum(1, 50);
+  const number = `${question}${questionNum}`;
+  const correctAnsw = questionNum % 2 !== 0 || questionNum === 0 ? 'no' : 'yes';
+  return [number, correctAnsw];
+};
 
-  let i = 0;
-  while (i < 3) {
-    const questionNum = randomNum(1, 50);
-    console.log(`${question}${questionNum}`);
-    const correctAnsw = questionNum % 2 !== 0 || questionNum === 0 ? 'no' : 'yes';
-    if (responseСomparison(correctAnsw) === false) {
-      return;
-    }
-    i += 1;
-    congratulations(i);
-  }
+const brainEven = () => {
+  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const generateRound = () => randomNumEvenOrNo();
+  runGameEngine(rules, generateRound);
 };
 export default brainEven;
