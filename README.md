@@ -5,6 +5,9 @@ In each game you are asked a question that you must answer correctly depending o
 Each game is played up to the first wrong answer or up to three correct answers in each of the rounds.
 If the answer is wrong the game ends, you lose. If you answer correctly three rounds in a row, then you win.
 
+global installation of a package from a local directory:
+npm link
+
 Installing
 How to get a development env running
 
