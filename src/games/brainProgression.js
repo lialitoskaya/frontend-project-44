@@ -1,5 +1,5 @@
-import randomNum from '../utils.js';
-import { runGameEngine } from '../index.js';
+import randomNum from "../utils.js";
+import { runGameEngine } from "../index.js";
 
 const progression = (firstNumber, x, length) => {
   const progressionNumbers = [];
@@ -13,9 +13,9 @@ const progression = (firstNumber, x, length) => {
 };
 
 const encryptNumber = (array, index) => {
-  const b = '..';
+  const b = "..";
   array.splice(index, 1, b).join();
-  return array.join(' ');
+  return array.join(" ");
 };
 
 const makeRound = () => {
@@ -25,12 +25,12 @@ const makeRound = () => {
   const questionNum = progression(firstNumber, x, length);
   const index = randomNum(0, questionNum.length - 1);
   const correctAnsw = questionNum[index];
-  const question = encryptNumber(questionNum, index);
+  const question = `Question: ${encryptNumber(questionNum, index)}`;
   return [question, correctAnsw.toString()];
 };
 
 const brainProgression = () => {
-  const rules = 'What number is missing in the progression?';
+  const rules = "What number is missing in the progression?";
   runGameEngine(rules, makeRound);
 };
 
