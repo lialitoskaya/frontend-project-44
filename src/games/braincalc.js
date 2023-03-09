@@ -1,18 +1,18 @@
-import { runGameEngine } from "../index.js";
-import randomNum from "../utils.js";
+import { runGameEngine } from '../index.js';
+import randomNum from '../utils.js';
 
 const getRandomOperator = () => {
-  const operator = ["+", "-", "*"];
+  const operator = ['+', '-', '*'];
   return operator[randomNum(0, operator.length - 1)];
 };
 
 const calculation = (num1, num2, operator) => {
   switch (operator) {
-    case "-":
+    case '-':
       return num1 - num2;
-    case "+":
+    case '+':
       return num1 + num2;
-    case "*":
+    case '*':
       return num1 * num2;
     default:
       return null;
@@ -31,7 +31,7 @@ const makeRound = () => {
 };
 
 const brainCalc = () => {
-  const rules = "What is the result of the expression?";
+  const rules = 'What is the result of the expression?';
   runGameEngine(rules, makeRound);
 };
 
