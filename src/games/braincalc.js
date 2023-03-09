@@ -3,7 +3,7 @@ import randomNum from "../utils.js";
 
 const getRandomOperator = () => {
   const operator = ["+", "-", "*"];
-  return operator[randomNum(0, operator.length)];
+  return operator[randomNum(0, operator.length - 1)];
 };
 
 const calculation = (num1, num2, operator) => {
@@ -27,7 +27,7 @@ const makeRound = () => {
 
   const question = `Question: ${num1} ${operator} ${num2}`;
 
-  return [question, correctAnsw.toString()];
+  return [question, `${correctAnsw}`];
 };
 
 const brainCalc = () => {
