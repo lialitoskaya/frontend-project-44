@@ -26,7 +26,7 @@ const makeRound = () => {
   const index = randomNum(0, questionNum.length - 1);
   const correctAnsw = questionNum[index];
   const question = `Question: ${encryptNumber(questionNum, index)}`;
-  return [question, correctAnsw.join()];
+  return [question, `${correctAnsw}`];
 };
 
 const brainProgression = () => {
