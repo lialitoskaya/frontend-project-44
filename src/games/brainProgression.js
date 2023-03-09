@@ -1,30 +1,37 @@
 import randomNum from '../utils.js';
-import { question, runGameEngine } from '../index.js';
+import { runGameEngine } from '../index.js';
 
-const rules = 'What number is missing in the progression?';
-
-const randomProgression = () => {
-  const x = randomNum(2, 6);
-  let lastNumberProgression = randomNum(1, 60);
-  const lengthProgression = randomNum(6, 9);
-
-  const questionNum = [];
-  questionNum.push(lastNumberProgression);
-
-  for (let i1 = 0; i1 < lengthProgression; i1 += 1) {
-    lastNumberProgression += x;
-    questionNum.push(lastNumberProgression);
+const progression = (firstNumber, x, length) => {
+  const progressionNumbers = [];
+  progressionNumbers.push(firstNumber);
+  let lastNumber = firstNumber;
+  for (let i1 = 0; i1 < length; i1 += 1) {
+    lastNumber += x;
+    progressionNumbers.push(lastNumber);
   }
+  return progressionNumbers;
+};
+
+const encryptNumber = (array, index) => {
   const b = '..';
-  const randomIndex = randomNum(0, questionNum.length - 1);
-  const correctAnsw = questionNum.splice(randomIndex, 1, b).join();
-  const numbersProgression = `${question}${questionNum.join(' ')}`;
-  return [numbersProgression, correctAnsw];
+  array.splice(index, 1, b).join();
+  return array.join(' ');
+};
+
+const makeRound = () => {
+  const x = randomNum(2, 6);
+  const firstNumber = randomNum(1, 60);
+  const length = randomNum(6, 9);
+  const questionNum = progression(firstNumber, x, length);
+  const index = randomNum(0, questionNum.length - 1);
+  const correctAnsw = questionNum[index];
+  const question = encryptNumber(questionNum, index);
+  return [question, correctAnsw.toString()];
 };
 
 const brainProgression = () => {
-  const generateRound = () => randomProgression();
-  runGameEngine(rules, generateRound);
+  const rules = 'What number is missing in the progression?';
+  runGameEngine(rules, makeRound);
 };
 
 export default brainProgression;

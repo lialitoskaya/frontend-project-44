@@ -1,28 +1,31 @@
-import { question, runGameEngine } from '../index.js';
+import { runGameEngine } from '../index.js';
 import randomNum from '../utils.js';
 
-const findGcdTwoRandomNum = () => {
-  let num = randomNum(1, 10);
-  let num2 = randomNum(1, 10);
-  let correctAnsw = 0;
-  const questionNums = `${num} ${num2}`;
-  const numbers = `${question}${questionNums}`;
-
-  while (num !== 0 && num2 !== 0) {
-    if (num > num2) {
-      num %= num2;
+const gcd = (num1, num2) => {
+  while (num1 !== 0 && num2 !== 0) {
+    if (num1 > num2) {
+      // eslint-disable-next-line no-param-reassign
+      num1 %= num2;
     } else {
-      num2 %= num;
+      // eslint-disable-next-line no-param-reassign
+      num2 %= num1;
     }
-    correctAnsw = num + num2;
   }
-  return [numbers, correctAnsw.toString()];
+  return num1 + num2;
+};
+
+const makeRound = () => {
+  const num1 = randomNum(1, 10);
+  const num2 = randomNum(1, 10);
+  const correctAnsw = gcd(num1, num2);
+  const question = `Question: ${num1} ${num2}`;
+
+  return [question, correctAnsw.toString()];
 };
 
 const brainGcd = () => {
   const rules = 'Find the greatest common divisor of given numbers.';
-  const generateRound = () => findGcdTwoRandomNum();
-  runGameEngine(rules, generateRound);
+  runGameEngine(rules, makeRound);
 };
 
 export default brainGcd;

@@ -1,34 +1,38 @@
-import { question, runGameEngine } from '../index.js';
+import { runGameEngine } from '../index.js';
 import randomNum from '../utils.js';
 
-const calc = () => {
+const getRandomOperator = () => {
   const operator = ['+', '-', '*'];
+  return operator[randomNum(0, operator.length)];
+};
 
-  const num = randomNum(1, 10);
-  const num2 = randomNum(1, 10);
-  const randomOperator = operator[randomNum(0, 2)];
-  const questionExpression = `${question}${num} ${randomOperator} ${num2}`;
-  let correctAnsw;
-  switch (randomOperator) {
+const calculation = (num1, num2, operator) => {
+  switch (operator) {
     case '-':
-      correctAnsw = num - num2;
-      break;
+      return num1 - num2;
     case '+':
-      correctAnsw = num + num2;
-      break;
+      return num1 + num2;
     case '*':
-      correctAnsw = num * num2;
-      break;
+      return num1 * num2;
     default:
-      correctAnsw = null;
+      throw new Error(`Operator - ${operator}, is incorrect!`);
   }
-  return [questionExpression, correctAnsw.toString()];
+};
+
+const makeRound = () => {
+  const num1 = randomNum(1, 10);
+  const num2 = randomNum(1, 10);
+  const operator = getRandomOperator();
+  const correctAnsw = calculation(num1, num2, operator);
+
+  const question = `Question: ${num1} ${operator} ${num2}`;
+
+  return [question, correctAnsw.toString()];
 };
 
 const brainCalc = () => {
   const rules = 'What is the result of the expression?';
-  const generateRound = () => calc();
-  runGameEngine(rules, generateRound);
+  runGameEngine(rules, makeRound);
 };
 
 export default brainCalc;
