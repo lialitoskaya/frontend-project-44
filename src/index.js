@@ -9,6 +9,7 @@ const runGameEngine = (rules, generateRound) => {
 
   for (let i = 0; i < 3; i += 1) {
     const [question, correctAnswer] = generateRound();
+
     console.log(question);
     const userAnswer = readlineSync.question('Your answer ');
 
