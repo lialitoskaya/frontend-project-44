@@ -1,29 +1,27 @@
-import randomNum from '../utils.js';
-import { runGameEngine } from '../index.js';
-
-const randomNumber = () => randomNum(1, 10);
+import getRandomInRange from '../utils.js';
+import runGameEngine from '../index.js';
 
 const isPrime = (number) => {
   let count = 0;
   let correctAnswer;
   if (number === 1) {
-    correctAnswer = 'no';
+    correctAnswer = false;
   }
   for (let i = 2; i <= number; i += 1) {
     if (number % i === 0) {
       count += 1;
     }
-    correctAnswer = count > 1 ? 'no' : 'yes';
+    correctAnswer = count > 1;
   }
   return correctAnswer;
 };
 
 const makeRound = () => {
-  const questionNum = randomNumber();
-  const correctAnsw = isPrime(questionNum);
-  const question = `Question: ${questionNum}`;
+  const questionNumbers = getRandomInRange(1, 10);
+  const correctAnswer = isPrime(questionNumbers) ? 'yes' : 'no';
+  const question = `Question: ${questionNumbers}`;
 
-  return [question, correctAnsw];
+  return [question, correctAnswer];
 };
 
 const brainPrime = () => {

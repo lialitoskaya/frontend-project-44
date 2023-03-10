@@ -1,9 +1,9 @@
-import { runGameEngine } from '../index.js';
-import randomNum from '../utils.js';
+import runGameEngine from '../index.js';
+import getRandomInRange from '../utils.js';
 
 const getRandomOperator = () => {
   const operator = ['+', '-', '*'];
-  return operator[randomNum(0, operator.length - 1)];
+  return operator[getRandomInRange(0, operator.length - 1)];
 };
 
 const calculation = (num1, num2, operator) => {
@@ -15,19 +15,19 @@ const calculation = (num1, num2, operator) => {
     case '*':
       return num1 * num2;
     default:
-      return null;
+      throw new Error(`Operator ${operator} - is incorrect!`);
   }
 };
 
 const makeRound = () => {
-  const num1 = randomNum(1, 10);
-  const num2 = randomNum(1, 10);
+  const num1 = getRandomInRange(1, 10);
+  const num2 = getRandomInRange(1, 10);
   const operator = getRandomOperator();
-  const correctAnsw = calculation(num1, num2, operator);
+  const correctAnswer = calculation(num1, num2, operator);
 
   const question = `Question: ${num1} ${operator} ${num2}`;
 
-  return [question, `${correctAnsw}`];
+  return [question, `${correctAnswer}`];
 };
 
 const brainCalc = () => {

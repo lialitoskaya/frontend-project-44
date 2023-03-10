@@ -1,32 +1,25 @@
-import randomNum from '../utils.js';
-import { runGameEngine } from '../index.js';
+/* eslint-disable no-plusplus */
+import getRandomInRange from '../utils.js';
+import runGameEngine from '../index.js';
 
-const progression = (firstNumber, x, length) => {
+const progression = (firstNumber, step, length) => {
   const progressionNumbers = [];
-  progressionNumbers.push(firstNumber);
-  let lastNumber = firstNumber;
-  for (let i1 = 0; i1 < length; i1 += 1) {
-    lastNumber += x;
-    progressionNumbers.push(lastNumber);
+  for (let i = 0; i < length; i++) {
+    progressionNumbers.push(firstNumber + step * i);
   }
   return progressionNumbers;
 };
 
-const encryptNumber = (array, index) => {
-  const b = '..';
-  array.splice(index, 1, b).join();
-  return array.join(' ');
-};
-
 const makeRound = () => {
-  const x = randomNum(2, 6);
-  const firstNumber = randomNum(1, 60);
-  const length = randomNum(6, 9);
-  const questionNum = progression(firstNumber, x, length);
-  const index = randomNum(0, questionNum.length - 1);
-  const correctAnsw = questionNum[index];
-  const question = `Question: ${encryptNumber(questionNum, index)}`;
-  return [question, `${correctAnsw}`];
+  const step = getRandomInRange(2, 6);
+  const firstNumber = getRandomInRange(1, 60);
+  const length = getRandomInRange(6, 9);
+  const questionProgression = progression(firstNumber, step, length);
+  const hiddenIndex = getRandomInRange(0, questionProgression.length - 1);
+  const correctAnswer = questionProgression[hiddenIndex];
+  questionProgression[hiddenIndex] = '..';
+  const question = `Question: ${questionProgression.join(' ')}`;
+  return [question, `${correctAnswer}`];
 };
 
 const brainProgression = () => {
