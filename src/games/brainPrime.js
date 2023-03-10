@@ -1,5 +1,5 @@
-import getRandomInRange from "../utils.js";
-import runGameEngine from "../index.js";
+import getRandomInRange from '../utils.js';
+import runGameEngine from '../index.js';
 
 const isPrime = (number) => {
   let count = 0;
@@ -18,7 +18,7 @@ const isPrime = (number) => {
 
 const makeRound = () => {
   const questionNumbers = getRandomInRange(1, 10);
-  const correctAnswer = isPrime(questionNumbers) ? "no" : "yes";
+  const correctAnswer = isPrime(questionNumbers) ? 'no' : 'yes';
   const question = `Question: ${questionNumbers}`;
 
   return [question, correctAnswer];
